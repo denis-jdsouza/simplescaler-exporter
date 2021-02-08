@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplescaler-exporter
+  labels:
+    app: simplescaler-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simplescaler-exporter
+  template:
+    metadata:
+      labels:
+        app: simplescaler-exporter
+    spec:
+      serviceAccountName: simplescaler-exporter-sa
+      containers:
+        - name: simplescaler-exporter
+          image: "denisjd/simplescaler-exporter:v1.0"
+          env:
+            - name: UPDATE_PERIOD
+              value: "15"        # replace this with Prometehus 'scrape_interval' configuration
+            - name: LOG_LEVEL
+              value: "INFO"      # specify logging-level, supported values (DEBUG/INFO/WARNING/ERROR)
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 2
+            httpGet:
+              path: /metrics
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 5
+          readinessProbe:
+            failureThreshold: 2
+            httpGet:
+              path: /metrics
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              cpu: 100m
+              memory: 120Mi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+  strategy:
+    type: Recreate
