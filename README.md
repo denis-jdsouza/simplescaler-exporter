@@ -53,7 +53,7 @@ kube_simplescaler_spec_scale_up_size{namespace="default",scaler="default-scaler"
 - Prometheus configured to scraping metrics from service endpoint
 - CRD 'Scaler' should be deployed in the Kubernetes cluster [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_
 
-## simplescaler-exporter Prometheus Job Details
+## Prometheus Job Details
 ```
 - job_name: kubernetes-service-endpoints
   honor_timestamps: true
@@ -105,10 +105,13 @@ kube_simplescaler_spec_scale_up_size{namespace="default",scaler="default-scaler"
     action: replace
 ```
 
-## simplescaler-exporter Service Annotations
+## Service Annotations
 ```
 metadata:
   annotations:
     prometheus.io/port: "8000"
     prometheus.io/scrape: "true"
 ```
+
+## Grafana Monitoring Graphs
+<img src="img/simplescaler-exporter.png" width="1000">
