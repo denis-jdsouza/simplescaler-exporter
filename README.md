@@ -1,8 +1,10 @@
 # Custom Prometheus exporter for exporting simple-scaler (pod-autoscaler) metrics
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-This as a supporting app for 'simple-scaler' (pod-autoscaler) [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_.\
-Metrics for 'simple-scaler' were not available in Prometheus.\
-This Python app polls kubernetes custom-resource (Scaler) metrics over API and exports them via HTTP for Prometheus consumption.
+## Overview
+This is as a supporting app for 'simple-scaler' (pod-autoscaler) [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_.\
+Metrics for 'simple-scaler' were not available in Prometheus hence the need for this app.\
+This Python app polls Kubernetes custom-resource (Scaler) metrics over API and exports them via HTTP for Prometheus consumption.
 
 ## Metrics exported
 ```
@@ -50,7 +52,7 @@ kube_simplescaler_spec_scale_up_size{namespace="default",scaler="default-scaler"
 ```
 
 ## Dependencies
-- Prometheus configured to scraping metrics from service endpoint
+- Prometheus configured to scrape metrics from service endpoint
 - CRD 'Scaler' should be deployed in the Kubernetes cluster [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_
 
 ## Prometheus Job Details
@@ -115,3 +117,6 @@ metadata:
 
 ## Grafana Monitoring Graphs
 <img src="img/simplescaler-exporter.png" width="1000">
+
+## License
+Code released under the [MIT License](https://opensource.org/licenses/MIT)
