@@ -17,7 +17,7 @@ spec:
       serviceAccountName: simplescaler-exporter-sa
       containers:
         - name: simplescaler-exporter
-          image: "denisjd/simplescaler-exporter:v1.0"
+          image: "denisjd/simplescaler-exporter:v1.1"
           env:
             - name: UPDATE_PERIOD
               value: "15"        # replace this with Prometehus 'scrape_interval' configuration
