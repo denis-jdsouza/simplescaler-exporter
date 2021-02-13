@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
-This is as a supporting app for 'simple-scaler' (pod-autoscaler) [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_.\
+This is as a supporting app for 'simple-scaler' (pod auto-scaler) [GitHub](https://github.com/denis-jdsouza/simple-scaler) - _Repo_.\
 Metrics for 'simple-scaler' were not available in Prometheus hence the need for this app.\
 This Python app polls Kubernetes custom-resource (Scaler) metrics over API and exports them via HTTP for Prometheus consumption.
 
