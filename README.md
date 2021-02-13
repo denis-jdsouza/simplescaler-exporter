@@ -1,4 +1,4 @@
-# Custom Prometheus exporter for exporting simple-scaler (pod-autoscaler) metrics
+# Custom Prometheus exporter for exporting simple-scaler (pod auto-scaler) metrics
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
